@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Uploader</title>
+  <style>
+    .container {
+      margin: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .input-container {
+      display: flex;
+      align-items: center;
+    }
+    .input-container label {
+      margin-right: 10px;
+    }
+    #filedata {
+      resize: vertical;
+      min-height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="input-container">
+      <label for="filename">ID:</label>
+      <input type="text" id="filename" placeholder="Enter ID">
+    </div>
+
+    <label for="filedata">File Data:</label>
+    <textarea id="filedata" placeholder="Enter file data"></textarea>
+
+    <button onclick="createFile()">Create File</button>
+  </div>
+
+  <script>
+    function createFile() {
+      var filename = document.getElementById('filename').value;
+      var filedata = document.getElementById('filedata').value;
+
+      var element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(filedata));
+      element.setAttribute('download', filename);
+
+      element.style.display = 'none';
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
+    }
+  </script>
+</body>
+</html>
