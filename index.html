@@ -4,10 +4,15 @@
     <title>File Uploader</title>
 </head>
 <body>
-    <h2>File Uploader</h2>
-    <form action="upload.php" method="POST" enctype="multipart/form-data">
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Upload" name="submit">
+    <h1>File Uploader</h1>
+    <form action="create_file.php" method="POST" enctype="multipart/form-data">
+        <label for="filename">File Name:</label>
+        <input type="text" id="filename" name="filename" required>
+        <br>
+        <label for="filedata">File Data:</label>
+        <input type="text" id="filedata" name="filedata" required>
+        <br>
+        <input type="submit" value="Create File">
     </form>
 </body>
 </html>
